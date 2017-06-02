@@ -1,0 +1,124 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title User_list
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(href='http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css', rel='stylesheet')
+    style(type='text/css').
+      .row{
+      margin-top:40px;
+      padding: 0 10px;
+      }
+      .clickable{
+      cursor: pointer;
+      }
+      .panel-heading div {
+      margin-top: -18px;
+      font-size: 15px;
+      }
+      .panel-heading div span{
+      margin-left:5px;
+      }
+      .panel-body{
+      display: none;
+      }
+    script(src='http://code.jquery.com/jquery-1.11.1.min.js')
+    script(src='http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js')
+  body
+    .span3
+form(method='post', action='/admin_movie/userlist', name='userform')
+  
+  .clearfix
+script(type='text/javascript').
+
+body
+  .container
+    .row
+      .col-md-6
+        .panel.panel-primary
+          .panel-heading
+            h2 유저리스트
+            br
+            br
+            .pull-right
+              span.clickable.filter(data-toggle='tooltip', title='Toggle table filter', data-container='body')
+                i.glyphicon.glyphicon-filter
+          .panel-body
+            input#dev-table-filter.form-control(type='text', data-action='filter', data-filters='#dev-table', placeholder='ID검색')
+          table#dev-table.table.table-hover
+            thead
+              tr
+                th
+                  | No.
+                th
+                  | ID
+                th
+                  | 이름
+                th
+                  | e-mail
+                th
+                  | point
+            tbody
+              each docs, i in admin_user_list
+                tr
+                  td= i+1
+                  td= docs.user_id
+                  td= docs.user_name
+                  td= docs.user_mail
+                  td= docs.user_point
+  script(type='text/javascript').
+       /**
+       *   I don't recommend using this plugin on large tables, I just wrote it to make the demo useable. It will work fine for smaller tables
+       *   but will likely encounter performance issues on larger tables.
+       *
+       *    <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
+       *    $(input-element).filterTable()
+       *
+       *  The important attributes are 'data-action="filter"' and 'data-filters="#table-selector"'
+       */
+       (function(){
+       'use strict';
+       var $ = jQuery;
+       $.fn.extend({
+       filterTable: function(){
+       return this.each(function(){
+       $(this).on('keyup', function(e){
+       $('.filterTable_no_results').remove();
+       var $this = $(this),
+       search = $this.val().toLowerCase(),
+       target = $this.attr('data-filters'),
+       $target = $(target),
+       $rows = $target.find('tbody tr');
+       if(search == '') {
+       $rows.show();
+       } else {
+       $rows.each(function(){
+       var $this = $(this);
+       $this.text().toLowerCase().indexOf(search) === -1 ? $this.hide() : $this.show();
+       })
+       if($target.find('tbody tr:visible').size() === 0) {
+       var col_count = $target.find('tr').first().find('td').size();
+       var no_results = $('<tr class="filterTable_no_results"><td colspan="'+col_count+'">No results found</td></tr>')
+       $target.find('tbody').append(no_results);
+       }
+       }
+       });
+       });
+       }
+       });
+       $('[data-action="filter"]').filterTable();
+       })(jQuery);
+       $(function(){
+       // attach table filter plugin to inputs
+       $('[data-action="filter"]').filterTable();
+       $('.container').on('click', '.panel-heading span.filter', function(e){
+       var $this = $(this),
+       $panel = $this.parents('.panel');
+       $panel.find('.panel-body').slideToggle();
+       if($this.css('display') != 'none') {
+       $panel.find('.panel-body input').focus();
+       }
+       });
+       $('[data-toggle="tooltip"]').tooltip();
+       })

@@ -1,0 +1,368 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title About Us
+    // core CSS
+    link(href='css/bootstrap.min.css', rel='stylesheet')
+    link(href='css/font-awesome.min.css', rel='stylesheet')
+    link(href='css/animate.min.css', rel='stylesheet')
+    link(href='css/prettyPhoto.css', rel='stylesheet')
+    link(href='css/main.css', rel='stylesheet')
+    link(href='css/responsive.css', rel='stylesheet')
+    link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+    link(href='css/card.css', rel='stylesheet')
+    link(href='css/w3.css', rel='stylesheet')
+    
+    //link(href='css/megabox.css', rel='stylesheet')
+    link(href='css/theme.css', rel='stylesheet')
+    link(href='css/theme2.css', rel='stylesheet')
+    link(href='css/etc.css', rel='stylesheet')
+    link(href='css/normalize.css', rel='stylesheet')
+    link(href='css/li_test.css', rel='stylesheet')
+    //if lt IE 9
+      script(src='js/html5shiv.js')
+      script(src='js/respond.min.js')
+    link(rel='shortcut icon', href='images/ico/favicon.ico')
+    link(rel='apple-touch-icon-precomposed', sizes='144x144', href='images/ico/apple-touch-icon-144-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', sizes='114x114', href='images/ico/apple-touch-icon-114-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', sizes='72x72', href='images/ico/apple-touch-icon-72-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', href='images/ico/apple-touch-icon-57-precomposed.png')
+  // /head
+  body
+    header#header
+      .top-bar
+        .container
+          .row
+            .col-sm-6.col-xs-4
+              .top-number 
+                p
+                  i.fa.fa-phone-square
+                  |   +82 10 5645 5999
+            .col-sm-6.col-xs-8
+              .social
+                ul.social-share
+                  li(style='margin-right:10px')
+                    a(href='/login')
+                      i.fa.fa-sign-in.fa-2x
+                  li(style='margin-right:10px')
+                    a(href='/join')
+                      i.fa.fa-dribbble.fa-2x
+                  li(style='margin-right:10px')
+                    a(href='/login/logout')
+                      i.fa.fa-sign-out.fa-2x
+                  li(style='margin-right:10px')
+                    if(session.user != undefined)
+                      if(session.user.user_id == 'admin')
+                        a(href='/admin_movie')
+                          i.fa.fa-cog.fa-2x
+                      else
+                       span #{session.user.user_name} 님 환영합니다.
+                  li(style='color : white')
+        // /.container
+      // /.top-bar
+      nav.navbar.navbar-inverse(role='banner')
+        .container
+          .navbar-header
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand(href='http://localhost:3000/')
+              img(src='images/logo.png', alt='logo')
+          .collapse.navbar-collapse.navbar-right
+            ul.nav.navbar-nav
+              li
+                a(href='http://localhost:3000/') 메인화면 
+              li
+                a(href='/movie_list') 영화리스트
+              li
+                a(href='/events') 스토어
+              li
+                a(href='/mypage') 마이페이지
+              li.dropdown
+                a.dropdown-toggle(href='#', data-toggle='dropdown')
+                  | 고객센터　
+                  i.fa.fa-angle-down
+                ul.dropdown-menu
+                  li
+                    a(href='/asks') 1:1 문의
+                  li
+                    a(href='/locations') 위치
+              li.active
+                a(href='/about_us') 회사 소개
+        // /.container
+      // /nav
+    // /header
+    section#about-us
+    .container
+      .center.wow.fadeInDown
+        br
+        brx
+        h2 비전(Vision) & 미션(Mission)
+        p.lead
+          |  삶의 의미와 즐거움을 소통하는 공간을 창조한다.
+          br
+          |  저희 영화관은 선진화된 관람문화와 최고의 서비스로 고객에게 잊을 수 없는 감동을 선사합니다.
+      // about us slider
+      #about-slider
+        #carousel-slider.carousel.slide(data-ride='carousel')
+          // Indicators
+          ol.carousel-indicators.visible-xs
+            li.active(data-target='#carousel-slider', data-slide-to='0')
+            li(data-target='#carousel-slider', data-slide-to='1')
+            li(data-target='#carousel-slider', data-slide-to='2')
+          .carousel-inner
+            .item.active
+              img.img-responsive(src='images/team_1.jpg', alt='')
+            .item
+              img.img-responsive(src='images/team_2.jpg', alt='')
+            .item
+              img.img-responsive(src='images/team_3.jpg', alt='')
+          a.left.carousel-control.hidden-xs(href='#carousel-slider', data-slide='prev')
+            i.fa.fa-angle-left
+          a.right.carousel-control.hidden-xs(href='#carousel-slider', data-slide='next')
+            i.fa.fa-angle-right
+        // /#carousel-slider
+      // /#about-slider
+      // Our Skill
+      .skill-wrap.clearfix
+        .center.wow.fadeInDown
+          h2 핵심 가치
+          p.lead
+            | 사람에 대한 이해와 배려, 일상을 새롭게 하는 도전과 열정, 스스로 즐거워 하기 
+            br
+            |  영화보다 멋진 당신의 일상을 위하여 안목 있는 콘텐트와 라이프스타일을 제한합니다.
+        .row
+          .col-sm-3
+            .sinlge-skill.wow.fadeInDown(data-wow-duration='1000ms', data-wow-delay='300ms')
+              .joomla-skill
+                
+                p 공감
+          .col-sm-3
+            .sinlge-skill.wow.fadeInDown(data-wow-duration='1000ms', data-wow-delay='600ms')
+              .html-skill
+                
+                p 창조
+          .col-sm-3
+            .sinlge-skill.wow.fadeInDown(data-wow-duration='1000ms', data-wow-delay='900ms')
+              .css-skill
+                p 재미
+                  
+          .col-sm-3
+            .sinlge-skill.wow.fadeInDown(data-wow-duration='1000ms', data-wow-delay='1200ms')
+              .wp-skill
+                p 경험
+                  
+      // /.our-skill
+      // our-team
+      .team
+        .center.wow.fadeInDown
+          h2 공동 CEO 소개
+          p.lead
+            | 우리 영화관은 세명의 공동 CEO가 있습니다.
+            br
+            |  
+        .row.clearfix
+          .col-md-4.col-sm-6
+            .single-profile-top.wow.fadeInDown(data-wow-duration='1000ms', data-wow-delay='300ms')
+              .media
+                .pull-left
+                  a(href='#')
+                    img.media-object(src='images/cho.jpg', alt='')
+                .media-body
+                  h4 JangHee Cho
+                  h5 CEO
+                  
+                  ul.social_icons
+                    li
+                      a(href='#')
+                        i.fa.fa-facebook
+                    li
+                      a(href='#')
+                        i.fa.fa-twitter
+                    li
+                      a(href='#')
+                        i.fa.fa-google-plus
+              // /.media
+              p
+                | 저는 1994년 2월 5일 서울에서 태어났으며, 장곡초등학교를 나오고 남대문중학교를나와 경동고등학교를 졸업하여 현재 광운대학교 4학년에 재학중입니다. 이 영화관 사이트를 개발한 사람중 한명입니다.
+          // /.col-lg-4
+          .col-md-4.col-sm-6.col-md-offset-2
+            .single-profile-top.wow.fadeInDown(data-wow-duration='1000ms', data-wow-delay='300ms')
+              .media
+                .pull-left
+                  a(href='#')
+                    img.media-object(src='images/jeong.jpg', alt='')
+                .media-body
+                  h4 KwonHo Jeong
+                  h5 CEO
+                  
+                  ul.social_icons
+                    li
+                      a(href='#')
+                        i.fa.fa-facebook
+                    li
+                      a(href='#')
+                        i.fa.fa-twitter
+                    li
+                      a(href='#')
+                        i.fa.fa-google-plus
+              // /.media
+              p
+                | 저는 1992년 9월 9일 대전에서 태어났으며, 충남고등학교를 졸업하고 현재는 광운대학교 4학년 재학중입니다. 이 영화예매 사이트에서 데이터베이스를 개발한 사람입니다. 
+          // /.col-lg-4
+        // /.row
+        .row.team-bar
+          .first-one-arrow.hidden-xs
+            hr
+          .first-arrow.hidden-xs
+            hr
+            i.fa.fa-angle-up
+          .second-arrow.hidden-xs
+            hr
+            i.fa.fa-angle-down
+          .third-arrow.hidden-xs
+            hr
+            i.fa.fa-angle-up
+          
+        // skill_border
+        .row.clearfix
+          .col-md-4.col-sm-6.col-md-offset-2
+            .single-profile-bottom.wow.fadeInUp(data-wow-duration='1000ms', data-wow-delay='600ms')
+              .media
+                .pull-left
+                  a(href='#')
+                    img.media-object(src='images/kwon.jpg', alt='')
+                .media-body
+                  h4 TaeHyung Kwon
+                  h5 CEO
+                  
+                  ul.social_icons
+                    li
+                      a(href='#')
+                        i.fa.fa-facebook
+                    li
+                      a(href='#')
+                        i.fa.fa-twitter
+                    li
+                      a(href='#')
+                        i.fa.fa-google-plus
+              // /.media
+              p
+                | 저는 1990년 4월 12일 대구에서 태어났으며, 사화 초등학교를 나오고 불곡 중학교를나와 불곡 고등학교를 졸업하여 현재 광운대학교 4학년에 재학중입니다. 이 광운대 풍물굿패연합 홈페이지와 광운대알림봇을 운영하고있고 해당 영화관 사이트를 개발하였습니다.
+          
+        // /.row
+        // section
+      // /.container
+    // /about-us
+    section#bottom
+      .container.wow.fadeInDown(data-wow-duration='1000ms', data-wow-delay='600ms')
+        .row
+          .col-md-3.col-sm-6
+            .widget
+              h3 Company
+              ul
+                li
+                  a(href='#') About us
+                li
+                  a(href='#') We are hiring
+                li
+                  a(href='#') Meet the team
+                li
+                  a(href='#') Copyright
+                li
+                  a(href='#') Terms of use
+                li
+                  a(href='#') Privacy policy
+                li
+                  a(href='#') Contact us
+          // /.col-md-3
+          .col-md-3.col-sm-6
+            .widget
+              h3 Support
+              ul
+                li
+                  a(href='#') Faq
+                li
+                  a(href='#') Blog
+                li
+                  a(href='#') Forum
+                li
+                  a(href='#') Documentation
+                li
+                  a(href='#') Refund policy
+                li
+                  a(href='#') Ticket system
+                li
+                  a(href='#') Billing system
+          // /.col-md-3
+          .col-md-3.col-sm-6
+            .widget
+              h3 Developers
+              ul
+                li
+                  a(href='#') Web Development
+                li
+                  a(href='#') SEO Marketing
+                li
+                  a(href='#') Theme
+                li
+                  a(href='#') Development
+                li
+                  a(href='#') Email Marketing
+                li
+                  a(href='#') Plugin Development
+                li
+                  a(href='#') Article Writing
+          // /.col-md-3
+          .col-md-3.col-sm-6
+            .widget
+              h3 Our Partners
+              ul
+                li
+                  a(href='#') Adipisicing Elit
+                li
+                  a(href='#') Eiusmod
+                li
+                  a(href='#') Tempor
+                li
+                  a(href='#') Veniam
+                li
+                  a(href='#') Exercitation
+                li
+                  a(href='#') Ullamco
+                li
+                  a(href='#') Laboris
+          // /.col-md-3
+    // /#bottom
+    footer#footer.midnight-blue
+      .container
+        .row
+          .col-sm-6
+            | © 2013 
+            a(target='_blank', href='http://shapebootstrap.net/', title='Free Twitter Bootstrap WordPress Themes and HTML templates') ShapeBootstrap
+            | . All Rights Reserved.
+          .col-sm-6
+            ul.pull-right
+              li
+                a(href='#') Home
+              li
+                a(href='#') About Us
+              li
+                a(href='#') Faq
+              li
+                a(href='#') Contact Us
+    // /#footer
+    script(src='js/jquery.js')
+    script(type='text/javascript').
+      $('.carousel').carousel()
+    script(src='js/bootstrap.min.js')
+    script(src='js/jquery.prettyPhoto.js')
+    script(src='js/jquery.isotope.min.js')
+    script(src='js/main.js')
+    script(src='js/wow.min.js')

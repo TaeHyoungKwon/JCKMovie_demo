@@ -1,0 +1,125 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title Join
+    // core CSS
+    link(href='css/bootstrap.min.css', rel='stylesheet')
+    link(href='css/font-awesome.min.css', rel='stylesheet')
+    link(href='css/animate.min.css', rel='stylesheet')
+    link(href='css/prettyPhoto.css', rel='stylesheet')
+    link(href='css/main.css', rel='stylesheet')
+    link(href='css/responsive.css', rel='stylesheet')
+    link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+    link(href='css/card.css', rel='stylesheet')
+    link(href='css/w3.css', rel='stylesheet')
+    
+    //link(href='css/megabox.css', rel='stylesheet')
+    link(href='css/theme.css', rel='stylesheet')
+    link(href='css/theme2.css', rel='stylesheet')
+    link(href='css/etc.css', rel='stylesheet')
+    link(href='css/normalize.css', rel='stylesheet')
+    link(href='css/li_test.css', rel='stylesheet')    
+
+
+
+    //if lt IE 9
+      script(src='js/html5shiv.js')
+      script(src='js/respond.min.js')
+    link(rel='shortcut icon', href='images/ico/favicon.ico')
+    link(rel='apple-touch-icon-precomposed', sizes='144x144', href='images/ico/apple-touch-icon-144-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', sizes='114x114', href='images/ico/apple-touch-icon-114-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', sizes='72x72', href='images/ico/apple-touch-icon-72-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', href='images/ico/apple-touch-icon-57-precomposed.png')
+  // /head
+  body.homepage
+    header#header
+      .top-bar
+        .container
+          .row
+            .col-sm-6.col-xs-4
+              .top-number
+                p
+                  i.fa.fa-phone-square
+                  |   +82 10 5645 5999
+            .col-sm-6.col-xs-8
+              .social
+                ul.social-share
+                  li(style='margin-right:10px')
+                    a(href='/login')
+                      i.fa.fa-sign-in.fa-2x
+                  li(style='margin-right:10px')
+                    a(href='/join')
+                      i.fa.fa-dribbble.fa-2x
+                  li(style='margin-right:10px')
+                    a(href='/login/logout')
+                      i.fa.fa-sign-out.fa-2x
+
+      nav.navbar.navbar-inverse(role='banner')
+        .container
+          .navbar-header
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand(href='http://localhost:3000/')
+              img(src='images/logo.png', alt='logo')
+          .collapse.navbar-collapse.navbar-right
+            ul.nav.navbar-nav
+              li
+                a(href='http://localhost:3000/') 메인화면 
+              li
+                a(href='/movie_list') 영화리스트
+              li
+                a(href='/events') 스토어
+              li
+                a(href='/mypage') 마이페이지
+              li.dropdown
+                a.dropdown-toggle(href='#', data-toggle='dropdown')
+                  | 고객센터
+                  i.fa.fa-angle-down
+                ul.dropdown-menu
+                  li
+                    a(href='/asks') 1:1 문의
+                  li
+                    a(href='/locations') 위치
+              li
+                a(href='/about_us') 회사 소개
+                
+      .container
+        .row(style='margin-top:70px')
+          .col-xs-12.col-sm-8.col-md-6.col-sm-offset-2.col-md-offset-3
+            h1(style='color: #5e9ca0;') 회원가입
+            br
+            br
+            br
+            form(method='post', action='/join/insert', name='mongoform')
+              table.table.table-striped(width='400')
+                tr
+                  th 이름
+                  td
+                    input.span3(type='text', name='user_name', size='10' ,maxLength='10')
+                tr
+                  th 아이디
+                  td
+                    input.span3(type='text', name='user_id', size='15', maxLength='15')
+                tr
+                  th 이메일
+                  td
+                    input.span3(type='text', name='user_mail', size='30', maxLength='60')
+                tr
+                  th 비밀번호
+                  td
+                    input.span3(type='password', name='user_pw', size='20', maxLength='50')
+                    br
+                    br
+                    br
+                    
+
+                    center
+                      input#btnJoin.btn.btn-success(type='submit', name='join', value='가입', text-align='center')
+                      input.btn.btn-danger(type='reset', name='cancel', value='취소')

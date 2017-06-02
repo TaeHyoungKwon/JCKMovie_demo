@@ -1,0 +1,48 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title Movie Insert
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(href='http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css', rel='stylesheet')
+    style(type='text/css').
+    script(src='http://code.jquery.com/jquery-1.11.1.min.js')
+    script(src='http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js')
+  body
+    .container
+      .row(style='margin-top:30px')
+        .col-xs-12.col-sm-8.col-md-6.col-sm-offset-2.col-md-offset-3
+          h1(style='color: #5e9ca0;') 영화추가
+          
+          form(method='post', action='/admin_movie/insert', name='movieform',enctype='multipart/form-data')
+            
+            label 영화 타이틀
+            input.span3(type='text', name='movie_title')
+            
+            label 영화 장르
+            input.span3(type='text', name='movie_genre')
+            
+            label 영화 등급
+            input.span3(type='text', name='movie_grade')
+            
+            label 영화 개봉일
+            input.span3(type='text', name='movie_playdate')
+            
+            label 영화 러닝타임
+            input.span3(type='text', name='movie_runningtime')
+            
+            label 주연 배우
+            input.span3(type='text', name='movie_actor')
+            
+            label 감독 이름
+            input.span3(type='text', name='movie_director')
+            
+            label 영화 설명
+            input.span3(type='text', name='movie_summary')
+            
+            label 영화 업로드
+            input.span3(type='file', name='userfile')
+            
+            input(type='submit', value='admin_movie_insert')
+            .clearfix
+        script(type='text/javascript').

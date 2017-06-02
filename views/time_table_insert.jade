@@ -1,0 +1,23 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title Movie Screen Insert
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(href='http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css', rel='stylesheet')
+    style(type='text/css').
+    script(src='http://code.jquery.com/jquery-1.11.1.min.js')
+    script(src='http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js')
+  body
+    .span3
+      h2 상영 일정 추가
+      form(method='post', action='/screen/insert', name='movieform',enctype='multipart/form-data')
+        
+        label 영화 타이틀 
+        input.span3(type='text', name='movie_title')
+
+        label 날짜　　　ex)"2017-06-03 22:00" 
+        input.span3(type='text', name='date')
+        
+        input(type='submit', value='상영 일정 추가')
+        .clearfix

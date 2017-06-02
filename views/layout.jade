@@ -1,0 +1,110 @@
+//- doctype html
+//- html(lang='en')
+//-   head
+//-     meta(charset='utf-8')
+//-     meta(name='viewport', content='width=device-width, initial-scale=1.0')
+//-     meta(name='description', content='')
+//-     meta(name='author', content='')
+//-     title Home | Corlate
+//-     // core CSS
+//-     link(href='css/bootstrap.min.css', rel='stylesheet')
+//-     link(href='css/font-awesome.min.css', rel='stylesheet')
+//-     link(href='css/animate.min.css', rel='stylesheet')
+//-     link(href='css/prettyPhoto.css', rel='stylesheet')
+//-     link(href='css/main.css', rel='stylesheet')
+//-     link(href='css/responsive.css', rel='stylesheet')
+//-     link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+//-     link(href='css/card.css', rel='stylesheet')
+//-     link(href='css/w3.css', rel='stylesheet')
+    
+//-     //link(href='css/megabox.css', rel='stylesheet')
+//-     link(href='css/theme.css', rel='stylesheet')
+//-     link(href='css/theme2.css', rel='stylesheet')
+//-     link(href='css/etc.css', rel='stylesheet')
+//-     link(href='css/normalize.css', rel='stylesheet')
+    
+
+//-     //if lt IE 9
+//-       script(src='js/html5shiv.js')
+//-       script(src='js/respond.min.js')
+//-     link(rel='shortcut icon', href='images/ico/favicon.ico')
+//-     link(rel='apple-touch-icon-precomposed', sizes='144x144', href='images/ico/apple-touch-icon-144-precomposed.png')
+//-     link(rel='apple-touch-icon-precomposed', sizes='114x114', href='images/ico/apple-touch-icon-114-precomposed.png')
+//-     link(rel='apple-touch-icon-precomposed', sizes='72x72', href='images/ico/apple-touch-icon-72-precomposed.png')
+//-     link(rel='apple-touch-icon-precomposed', href='images/ico/apple-touch-icon-57-precomposed.png')
+//-   // /head
+//-   body.homepage
+//-     header#header
+//-       .top-bar
+//-         .container
+//-           .row
+//-             .col-sm-6.col-xs-4
+//-               .top-number 
+//-                 p
+//-                   i.fa.fa-phone-square
+//-                   |   +82 10 5645 5999
+//-             .col-sm-6.col-xs-8
+//-               .social
+//-                 ul.social-share
+//-                   li(style='margin-right:10px')
+//-                     a(href='/login')
+//-                       i.fa.fa-sign-in.fa-2x
+//-                   li(style='margin-right:10px')
+//-                     a(href='/join')
+//-                       i.fa.fa-dribbble.fa-2x
+//-                   li(style='margin-right:10px')
+//-                     a(href='/login/logout')
+//-                       i.fa.fa-sign-out.fa-2x
+//-                   li(style='margin-right:10px')
+//-                     if(session.user != undefined)
+//-                       if(session.user.user_id == 'admin')
+//-                         a(href='/admin_movie')
+//-                           i.fa.fa-cog.fa-2x
+//-                       else
+//-                        span #{session.user.user_name} 님 환영합니다.
+//-                   li(style='color : white')
+//-                     //- if(session.user != undefined)
+//-                     //-   span #{session.user.user_name} 님 환영합니다.
+//-         // /.container
+//-       // /.top-bar
+//-       nav.navbar.navbar-inverse(role='banner')
+//-         .container
+//-           .navbar-header
+//-             button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+//-               span.sr-only Toggle navigation
+//-               span.icon-bar
+//-               span.icon-bar
+//-               span.icon-bar
+//-             a.navbar-brand(href='http://localhost:3000/')
+//-               img(src='images/logo.png', alt='logo')
+//-           .collapse.navbar-collapse.navbar-right
+//-             ul.nav.navbar-nav
+//-               li.active
+//-                 a(href='http://localhost:3000/') 메인화면 
+//-               li
+//-                 a(href='http://localhost:3000/movie_list') 영화리스트
+//-               li
+//-                 a(href='services.html') Services
+//-               li
+//-                 a(href='portfolio.html') Portfolio
+//-               li.dropdown
+//-                 a.dropdown-toggle(href='#', data-toggle='dropdown')
+//-                   | Pages
+//-                   i.fa.fa-angle-down
+//-                 ul.dropdown-menu
+//-                   li
+//-                     a(href='blog-item.html') Blog Single
+//-                   li
+//-                     a(href='pricing.html') Pricing
+//-                   li
+//-                     a(href='404.html') 404
+//-                   li
+//-                     a(href='shortcodes.html') Shortcodes
+//-               li
+//-                 a(href='blog.html') Blog
+//-               li
+//-                 a(href='contact-us.html') Contact
+//-         // /.container
+//-       // /nav
+//-     // /header
+    block content

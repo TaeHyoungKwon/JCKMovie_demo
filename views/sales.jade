@@ -1,0 +1,51 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title Movie Delete
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(href='http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css', rel='stylesheet')
+    style(type='text/css').
+    script(src='http://code.jquery.com/jquery-1.11.1.min.js')
+    script(src='http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js')
+
+  body
+
+    .container
+      .row
+        .col-md-8.col-md-offset-2
+          .panel.panel-primary
+            .panel-heading
+              h1 매출 현황 
+              br
+              .pull-right
+                span.clickable.filter(data-toggle='tooltip', title='Toggle table filter', data-container='body')
+                  i.glyphicon.glyphicon-filter
+            .panel-body
+              table.table.table-striped(style='width:1000px;height: 250px; text-align: center')
+                thead
+                  tr
+                    th No.
+                    th 영화제목
+                    th 구매자 이름
+                    th 날짜
+                    th 좌석
+                    th 가격
+                  tbody
+                    each docs, i in sales
+                      tr
+                        td= i+1
+                        td= docs.movie_title
+                        td= docs.user
+                        td= docs.movie_playdate.getFullYear() +"/" + docs.movie_playdate.getMonth() +"/"+ docs.movie_playdate.getDate() +"--" +docs.movie_playdate.getHours() +":"+docs.movie_playdate.getMinutes()
+                        td= docs.reserved_seat
+                        td= 7000+"원"
+                        -j++
+                    td 
+                    td 
+                    td
+                    td
+                    td(style=' font-size : 20px; font-weight : 900') 총매출
+                    td= 7000*j +"원"
+
+

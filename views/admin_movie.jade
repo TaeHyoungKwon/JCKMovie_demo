@@ -1,0 +1,119 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title Admin
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(href='css/bootstrap.min.css', rel='stylesheet')
+    link(href='css/font-awesome.min.css', rel='stylesheet')
+    link(href='css/prettyPhoto.css', rel='stylesheet')
+    link(href='css/animate.min.css', rel='stylesheet')
+    link(href='css/main.css', rel='stylesheet')
+    link(href='css/responsive.css', rel='stylesheet')
+    link(href='http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css', rel='stylesheet')
+    style(type='text/css').
+    script(src='http://code.jquery.com/jquery-1.11.1.min.js')
+    script(src='http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js')
+    script(src='https://d3js.org/d3.v4.min.js')
+   body
+
+        .container
+          .row(style='margin-top:70px')
+            h1(style='color: #5e9ca0;') 관리자 페이지
+            br
+            br
+            .col-md-9
+              .row.carousel-holder
+                .col-md-12
+              .row
+                .col-sm-4.col-lg-4.col-md-4
+                  .thumbnail                    
+                    .caption
+                     h4.card-title 영화 추가
+                     p.card-text
+                       | 영화 추가를 하기 위한 페이지
+                     a.card-link(href='/admin_movie/insert') 이동
+                 .col-sm-4.col-lg-4.col-md-4
+                   .thumbnail
+                    
+                     .caption
+                      h4.card-title 영화 삭제
+                      p.card-text
+                        | 영화 삭제를 하기 위한 페이지
+                      a.card-link(href='/admin_movie/delete') 이동
+                  .col-sm-4.col-lg-4.col-md-4
+                    .thumbnail
+                      
+                      .caption
+                       h4.card-title 영화 업데이트
+                       p.card-text
+                         | 영화 업데이트를 하기 위한 페이지
+                       a.card-link(href='/admin_movie/update') 이동
+                   .col-sm-4.col-lg-4.col-md-4
+                     .thumbnail
+                       .caption
+                        h4.card-title 영화 일정 추가
+                        p.card-text
+                          | 영화 상영 일정을 추가하는 페이지
+                        a.card-link(href='/screen/time_table/insert') 이동
+                    .col-sm-4.col-lg-4.col-md-4
+                      .thumbnail
+                        .caption
+                         h4.card-title 영화 일정 확인
+                         p.card-text
+                           | 상영 영화 일정을 확인하는 페이지
+                         a.card-link(href='/screen/time_table') 이동
+                     .col-sm-4.col-lg-4.col-md-4
+                       .thumbnail
+                         .caption
+                          h4.card-title 고객 관리
+                          p.card-text
+                            | 고객 정보를 관리 하는 페이지
+                          a.card-link(href='/admin_movie/userlist') 이동
+                      .col-sm-4.col-lg-4.col-md-4
+                        .thumbnail
+                          .caption
+                           h4.card-title 판매 내역
+                           p.card-text
+                             | 판매 내역을 확인 하는 페이지
+                           a.card-link(href='/admin_movie/sales') 이동
+                       .col-sm-4.col-lg-4.col-md-4
+                         //- .thumbnail
+                      
+                      //-      .caption
+                      //-       h4.card-title 사용자리스트
+                      //-       p.card-text
+                      //-         | 사용자리스트를 보려면 여기를 클릭
+                      //-       a.card-link(href='/admin_movie/insert') 사용자리스트
+                      //-   .col-sm-4.col-lg-4.col-md-4
+                      //-     .thumbnail
+                    
+                      //-       .caption
+                      //-        h4.card-title 사용자리스트
+                      //-        p.card-text
+                      //-          | 사용자리스트를 보려면 여기를 클릭
+                      //-        a.card-link(href='/admin_movie/insert') 사용자리스트
+                      //-    .col-sm-4.col-lg-4.col-md-4
+                      //-      .thumbnail
+                      
+                      //-        .caption
+                      //-         h4.card-title 사용자리스트
+                      //-         p.card-text
+                      //-           | 사용자리스트를 보려면 여기를 클릭
+                      //-         a.card-link(href='/admin_movie/insert') 사용자리스트
+                      //-     .col-sm-4.col-lg-4.col-md-4
+                      //-       .thumbnail
+                            
+                      //-         .caption
+                      //-          h4.card-title 사용자리스트
+                      //-          p.card-text
+                      //-            | 사용자리스트를 보려면 여기를 클릭
+                      //-          a.card-link(href='/admin_movie/insert') 사용자리스트
+                      //-      .col-sm-4.col-lg-4.col-md-4
+                      //-        .thumbnail
+                          
+                      //-          .caption
+                      //-           h4.card-title 사용자리스트
+                      //-           p.card-text
+                      //-             | 사용자리스트를 보려면 여기를 클릭
+                      //-           a.card-link(href='/admin_movie/insert') 사용자리스트

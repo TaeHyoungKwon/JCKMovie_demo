@@ -1,0 +1,161 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title Location
+    // core CSS
+    link(href='css/bootstrap.min.css', rel='stylesheet')
+    link(href='css/font-awesome.min.css', rel='stylesheet')
+    link(href='css/animate.min.css', rel='stylesheet')
+    link(href='css/prettyPhoto.css', rel='stylesheet')
+    link(href='css/main.css', rel='stylesheet')
+    link(href='css/responsive.css', rel='stylesheet')
+    link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+    link(href='css/card.css', rel='stylesheet')
+    link(href='css/w3.css', rel='stylesheet')
+    
+    //link(href='css/megabox.css', rel='stylesheet')
+    link(href='css/theme.css', rel='stylesheet')
+    link(href='css/theme2.css', rel='stylesheet')
+    link(href='css/etc.css', rel='stylesheet')
+    link(href='css/normalize.css', rel='stylesheet')
+    link(href='css/li_test.css', rel='stylesheet')
+    //if lt IE 9
+      script(src='js/html5shiv.js')
+      script(src='js/respond.min.js')
+    link(rel='shortcut icon', href='images/ico/favicon.ico')
+    link(rel='apple-touch-icon-precomposed', sizes='144x144', href='images/ico/apple-touch-icon-144-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', sizes='114x114', href='images/ico/apple-touch-icon-114-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', sizes='72x72', href='images/ico/apple-touch-icon-72-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', href='images/ico/apple-touch-icon-57-precomposed.png')
+  // /head
+  body
+    header#header
+      .top-bar
+        .container
+          .row
+            .col-sm-6.col-xs-4
+              .top-number 
+                p
+                  i.fa.fa-phone-square
+                  |   +82 10 5645 5999
+            .col-sm-6.col-xs-8
+              .social
+                ul.social-share
+                  li(style='margin-right:10px')
+                    a(href='/login')
+                      i.fa.fa-sign-in.fa-2x
+                  li(style='margin-right:10px')
+                    a(href='/join')
+                      i.fa.fa-dribbble.fa-2x
+                  li(style='margin-right:10px')
+                    a(href='/login/logout')
+                      i.fa.fa-sign-out.fa-2x
+                  li(style='margin-right:10px')
+                    if(session.user != undefined)
+                      if(session.user.user_id == 'admin')
+                        a(href='/admin_movie')
+                          i.fa.fa-cog.fa-2x
+                      else
+                       span #{session.user.user_name} 님 환영합니다.
+                  li(style='color : white')
+        // /.container
+      // /.top-bar
+      nav.navbar.navbar-inverse(role='banner')
+        .container
+          .navbar-header
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand(href='http://localhost:3000/')
+              img(src='images/logo.png', alt='logo')
+          .collapse.navbar-collapse.navbar-right
+            ul.nav.navbar-nav
+              li
+                a(href='http://localhost:3000/') 메인화면 
+              li
+                a(href='/movie_list') 영화리스트
+              li
+                a(href='/events') 스토어
+              li
+                a(href='/mypage') 마이페이지
+              li.dropdown
+                a.dropdown-toggle(href='#', data-toggle='dropdown')
+                  | 고객센터
+                  i.fa.fa-angle-down
+                ul.dropdown-menu
+                  li
+                    a(href='/asks') 1:1 문의
+                  li
+                    a(href='/locations') 위치
+              li
+                a(href='/about_us') 회사 소개
+     
+    section#contact-info
+    br
+    br
+    br
+  
+    .center
+      h2 찾아 오시는 길
+      
+   
+    table(cellpadding='0', cellspacing='0', width='462')
+      tr
+        td(style='border:1px solid #cecece;')
+          a(href='http://map.naver.com/?searchCoord=964cc581be397cd94de7f8755903c49c124af778ae26fb4f02f888301bdfe4ba&query=6rSR7Jq064yA7ZWZ6rWQIOyDiOu5m%2Bq0gA%3D%3D&menu=location&tab=1&lng=03cd5c201c85fd9c18a5ae13f7026e4e&mapMode=0&mpx=09350560%3A37.6198986%2C127.0630001%3AZ11%3A0.0257437%2C0.0113337&lat=7d3797daf5e4a29b95a1068c85b5f049&dlevel=12&enc=b64', target='_blank')
+          img(src='http://prt.map.naver.com/mashupmap/print?key=p1495090071390_-1084800849', width='460', height='340', alt='지도 크게 보기', title='지도 크게 보기', border='0', style='vertical-align:top;')
+      tr
+        td
+          table(cellpadding='0', cellspacing='0', width='100%')
+          tr
+            td(height='30', bgcolor='#f9f9f9', align='left', style='padding-left:9px; border-left:1px solid #cecece; border-bottom:1px solid #cecece;')
+              span(style='font-family: tahoma; font-size: 11px; color:#666;') 
+              span(style='font-size: 11px; color:#e5e5e5;') |
+              a(style='font-family: dotum,sans-serif; font-size: 11px; color:#666; text-decoration: none; letter-spacing: -1px;', href='http://map.naver.com/?searchCoord=964cc581be397cd94de7f8755903c49c124af778ae26fb4f02f888301bdfe4ba&query=6rSR7Jq064yA7ZWZ6rWQIOyDiOu5m%2Bq0gA%3D%3D&menu=location&tab=1&lng=03cd5c201c85fd9c18a5ae13f7026e4e&mapMode=0&mpx=09350560%3A37.6198986%2C127.0630001%3AZ11%3A0.0257437%2C0.0113337&lat=7d3797daf5e4a29b95a1068c85b5f049&dlevel=12&enc=b64', target='_blank') 지도 크게 보기
+            td(width='98', bgcolor='#f9f9f9', align='right', style='text-align:right; padding-right:9px; border-right:1px solid #cecece; border-bottom:1px solid #cecece;')
+              span(style='float:right;')
+                span(style='font-size:9px; font-family:Verdana, sans-serif; color:#444;') © 
+                a(style='font-family:tahoma; font-size:9px; font-weight:bold; color:#2db400; text-decoration:none;', href='http://www.nhncorp.com', target='_blank') NAVER Corp.
+
+          .col-sm-7.map-content
+            ul.row
+            li.col-sm-6
+              address
+                h2 　　　　　　교통 안내
+                br　　　
+                p
+                  | 　　　　　　　　　지하철 1호선,경춘선 광운대역 / 도보 약 5분
+                  br
+                  | 　　　　　　　　　지하철 1,6호선 석계역 / 도보 약 10분
+                p
+                  |  　　　　　　　　　버스 1017, 261, 1137 / 도보 약 1분
+                  br
+                  |                                                                  
+            li.col-sm-6
+              address
+                h2　　　 본사
+                br
+                p
+                  | 　　　서울특별시 노원구 
+                  br
+                  |　　　월계동, 447-1
+                p
+                  | 　　　대표 전화 : 1588-5882
+                  br
+                  | 　　　이메일 주소:movie@kw.ac.kr
+              
+
+  
+   
+    script(src='js/jquery.js')
+    script(src='js/bootstrap.min.js')
+    script(src='js/jquery.prettyPhoto.js')
+    script(src='js/jquery.isotope.min.js')
+    script(src='js/main.js')
+    script(src='js/wow.min.js')

@@ -1,0 +1,37 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title Movie Delete
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(href='http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css', rel='stylesheet')
+    style(type='text/css').
+    script(src='http://code.jquery.com/jquery-1.11.1.min.js')
+    script(src='http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js')
+  body
+    .span3
+     form(method='post', action='/admin_movie/delete', name='movieform')
+      p.
+      p.text 영화 이름
+       input(text-align : center, type='text', name='movie_title')
+       input(type='submit', value='delete')
+script(type='text/javascript').
+
+table.table.table-striped
+  thead
+    tr
+      th No.
+      th 영화제목
+      th 장르
+      th 등급
+      th 감독
+      th 개봉일
+    tbody
+      each docs, i in admin_movie_list
+        tr
+          td= i+1
+          td= docs.movie_title
+          td= docs.movie_genre
+          td= docs.movie_grade
+          td= docs.movie_director
+          td= docs.movie_playdate

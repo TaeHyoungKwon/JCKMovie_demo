@@ -1,0 +1,124 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title time_table
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(href='http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css', rel='stylesheet')
+    
+    style(type='text/css').
+      .row{
+      margin-top:40px;
+      padding: 0 5px;
+      }
+      .clickable{
+      cursor: pointer;
+      }
+      .panel-heading div {
+      margin-top: -18px;
+      font-size: 15px;
+      }
+      .panel-heading div span{
+      margin-left:5px;
+      }
+      .panel-body{
+      display: none;
+      }
+    script(src='http://code.jquery.com/jquery-1.11.1.min.js')
+    script(src='http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js')
+  body
+    .span3
+          form(method='post', action='/screen/time_table', name='tableform')
+          .container
+            .row
+              .col-md-9
+                .panel.panel-primary
+                  .panel-heading
+                    h2(style="width: 700px ; text-align : center") 영화일정 확인
+                    br
+                    br
+                    .pull-right
+                      span.clickable.filter(data-toggle='tooltip', title='Toggle table filter', data-container='body')
+                        i.glyphicon.glyphicon-filter
+                  .panel-body
+                    input#dev-table-filter.form-control(type='text', data-action='filter', data-filters='#dev-table', placeholder='영화이름검색')
+                  table#dev-table.table.table-hover
+                    thead
+                      tr
+                        th(style="text-align : center") 영화 이름
+                        th(style="text-align : center") 시간
+                    tbody
+                      each docs1, i in time_table_list
+                        tr
+                          td()(style="text-align : center")=docs1.movie_title
+                          if docs1.movie_title =="캐리비안의 해적" 
+                            each val in [0,1,2]
+                              td=time_table_list[val].movie_playdate.getFullYear()+ "/" +time_table_list[val].movie_playdate.getMonth()+ "/" +time_table_list[val].movie_playdate.getDate()+"일 --" +time_table_list[val].movie_playdate.getHours()+ ":" +time_table_list[val].movie_playdate.getMinutes()+"분"
+                          else if docs1.movie_title =="겟 아웃"
+                            each val in [3,4,5]
+                              td=time_table_list[val].movie_playdate.getFullYear()+ "/" +time_table_list[val].movie_playdate.getMonth()+ "/" +time_table_list[val].movie_playdate.getDate()+"일 --" +time_table_list[val].movie_playdate.getHours()+ ":" +time_table_list[val].movie_playdate.getMinutes()+"분"
+                          else if docs1.movie_title =="불한당"
+                            each val in [6,7,8]
+                              td=time_table_list[val].movie_playdate.getFullYear()+ "/" +time_table_list[val].movie_playdate.getMonth()+ "/" +time_table_list[val].movie_playdate.getDate()+"일 --" +time_table_list[val].movie_playdate.getHours()+ ":" +time_table_list[val].movie_playdate.getMinutes()+"분"
+                          else if docs1.movie_title =="노무현입니다"
+                            each val in [9,10]
+                              td=time_table_list[val].movie_playdate.getFullYear()+ "/" +time_table_list[val].movie_playdate.getMonth()+ "/" +time_table_list[val].movie_playdate.getDate()+"일 --" +time_table_list[val].movie_playdate.getHours()+ ":" +time_table_list[val].movie_playdate.getMinutes()+"분"
+                          -i++
+                          -i++
+          script(type='text/javascript').
+            /**
+            *   I don't recommend using this plugin on large tables, I just wrote it to make the demo useable. It will work fine for smaller tables
+            *   but will likely encounter performance issues on larger tables.
+            *
+            *       <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
+            *       $(input-element).filterTable()
+            *
+            *   The important attributes are 'data-action="filter"' and 'data-filters="#table-selector"'
+            */
+            (function(){
+            'use strict';
+            var $ = jQuery;
+            $.fn.extend({
+            filterTable: function(){
+            return this.each(function(){
+            $(this).on('keyup', function(e){
+            $('.filterTable_no_results').remove();
+            var $this = $(this),
+            search = $this.val().toLowerCase(),
+            target = $this.attr('data-filters'),
+            $target = $(target),
+            $rows = $target.find('tbody tr');
+            if(search == '') {
+            $rows.show();
+            } else {
+            $rows.each(function(){
+            var $this = $(this);
+            $this.text().toLowerCase().indexOf(search) === -1 ? $this.hide() : $this.show();
+            })
+            if($target.find('tbody tr:visible').size() === 0) {
+            var col_count = $target.find('tr').first().find('td').size();
+            var no_results = $('<tr class="filterTable_no_results"><td colspan="'+col_count+'">No results found</td></tr>')
+            $target.find('tbody').append(no_results);
+            }
+            }
+            });
+            });
+            }
+            });
+            $('[data-action="filter"]').filterTable();
+            })(jQuery);
+            $(function(){
+            // attach table filter plugin to inputs
+            $('[data-action="filter"]').filterTable();
+            $('.container').on('click', '.panel-heading span.filter', function(e){
+            var $this = $(this),
+            $panel = $this.parents('.panel');
+            $panel.find('.panel-body').slideToggle();
+            if($this.css('display') != 'none') {
+            $panel.find('.panel-body input').focus();
+            }
+            });
+            $('[data-toggle="tooltip"]').tooltip();
+            })
+
+              
